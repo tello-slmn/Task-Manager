@@ -185,15 +185,15 @@ namespace Task_Manager
         {
             List<Task> tasks = new List<Task>();
 
-            if (!File.Exists(fileName))
+            if (!File.Exists(filePath))
             {
-                using (StreamWriter sw = File.CreateText(fileName))
+                using (StreamWriter sw = File.CreateText(filePath))
                 {
                     sw.WriteLine("Task Name,Description,Status");
                 }
             }
 
-            string[] lines = File.ReadAllLines(fileName);
+            string[] lines = File.ReadAllLines(filePath);
             for (int i = 1; i < lines.Length; i++)//skip header
             {
                 string[] parts = lines[i].Split(',');
@@ -217,7 +217,7 @@ namespace Task_Manager
         // This can be done by iterating through the tasks list and writing each task to the file.
         private static void SaveTasksToCSV(List<Task> tasks)
         {
-            using (StreamWriter sw = new StreamWriter(fileName))
+            using (StreamWriter sw = new StreamWriter(filePath))
             {
                 sw.WriteLine("Task Name,Description,Status");
                 foreach (var task in tasks)
