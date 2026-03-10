@@ -7,7 +7,7 @@ namespace Task_Manager
 {
     internal class Program
     {
-        private const string fileName = "C:\\Users\\tello\\source\\repos\\Git Projects\\Task_Manager\\Tasks.csv";
+        private static readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "tasks.csv");
 
         static void Main(string[] args)
         {
